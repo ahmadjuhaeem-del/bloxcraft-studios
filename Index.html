@@ -2,51 +2,202 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta name="google-site-verification" content="IiLc88owws9HkMUZkY46e3_bHhhVkvrl0jxr-4SVhZc" />
 <meta charset="UTF-8">
+<meta name="google-site-verification" content="IiLc88owws9HkMUZkY46e3_bHhhVkvrl0jxr-4SVhZc">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>BloXcraft Studios | Handmade Tech</title>
+
 <style>
-:root{--bg:#f5f7ff;--ink:#18213b;--blue:#5b63f6;--pink:#ff70b8;--card:#fff}
-*{box-sizing:border-box}
-body{margin:0;font-family:Arial,sans-serif;background:var(--bg);color:var(--ink)}
-header{background:linear-gradient(120deg,#5b63f6,#a45cff,#ff70b8);color:white;padding:30px 18px;text-align:center}
-header h1{font-size:clamp(28px,5vw,45px);margin:8px}
-header p{margin:8px}
-nav{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;padding:14px;background:white;position:sticky;top:0;z-index:3;box-shadow:0 3px 12px #18213b12}
-button,.btn{border:0;border-radius:12px;padding:11px 15px;background:var(--blue);color:white;font-weight:bold;cursor:pointer}
-nav button{background:#f0efff;color:#4545b5}
-main{max-width:1100px;margin:auto;padding:22px}
-.hero{padding:25px;border-radius:22px;background:linear-gradient(120deg,#e5e5ff,#ffe4f1);margin-bottom:22px}
-.hero h2{font-size:30px;margin:5px 0}
-.filters{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0}
-.filters button.active{background:#25294b;color:white}
-.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:17px}
-.card,.panel{background:var(--card);border-radius:18px;padding:17px;box-shadow:0 5px 20px #18213b0c}
-.product-art{height:135px;border-radius:14px;background:linear-gradient(135deg,#ededff,#ffe8f3);display:grid;place-items:center;font-size:64px}
-.card h3{margin-bottom:5px}
-.price{font-size:21px;font-weight:bold;color:#5455e8}
-.muted{color:#68708b;font-size:14px}
-.add{width:100%;margin-top:10px}
-section{margin:28px 0}
-input,textarea,select{width:100%;padding:12px;border:1px solid #d8dced;border-radius:10px;font:inherit;background:white}
-label{display:block;font-weight:bold;margin:13px 0 6px}
-.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
-.cartrow{display:flex;justify-content:space-between;align-items:center;gap:10px;border-bottom:1px solid #eee;padding:12px 0}
-.qty{display:flex;gap:7px;align-items:center}
-.qty button{padding:5px 10px}
-.total{font-size:24px;font-weight:bold;margin:15px 0}
-.notice{padding:13px;background:#fff4d9;border-radius:12px;font-size:14px}
-footer{text-align:center;padding:28px;background:#202443;color:white}
-footer a{color:#ffd8ee}
-.hidden{display:none}
+:root {
+  --purple:#6257ff;
+  --pink:#ff65b7;
+  --blue:#43c6ff;
+  --ink:#20213e;
+  --bg:#f6f5ff;
+  --white:#fff;
+  --green:#16a875;
+}
+*{box-sizing:border-box;scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:Arial,Helvetica,sans-serif;
+  background:var(--bg);
+  color:var(--ink);
+}
+a{color:inherit}
+header{
+  padding:35px 18px;
+  text-align:center;
+  color:white;
+  background:linear-gradient(125deg,#5146ed,#9654ff,#ff69b4);
+  position:relative;
+  overflow:hidden;
+}
+header:after{
+  content:"";
+  position:absolute;
+  width:260px;height:260px;
+  background:#ffffff16;border-radius:50%;
+  top:-150px;right:-60px;
+}
+.logo{font-size:55px}
+header h1{
+  font-size:clamp(32px,6vw,55px);
+  margin:10px 0;
+  letter-spacing:-1px;
+}
+header p{line-height:1.7;margin:8px}
+.tag{
+  display:inline-block;padding:8px 14px;
+  background:#ffffff25;border:1px solid #ffffff50;
+  border-radius:50px;font-size:13px;
+}
+nav{
+  display:flex;justify-content:center;align-items:center;
+  gap:8px;flex-wrap:wrap;padding:13px;
+  background:white;position:sticky;top:0;z-index:10;
+  box-shadow:0 4px 18px #29205212;
+}
+button,.btn{
+  border:0;border-radius:12px;padding:12px 17px;
+  background:var(--purple);color:white;
+  font-weight:bold;cursor:pointer;
+  transition:transform .2s,box-shadow .2s;
+  font-size:14px;
+}
+button:hover,.btn:hover{
+  transform:translateY(-2px);
+  box-shadow:0 6px 16px #6257ff35;
+}
+nav button{background:#f0efff;color:#5146c8}
+nav button:hover{background:#e5e1ff}
+main{max-width:1150px;margin:auto;padding:22px}
+section{margin:32px 0;scroll-margin-top:85px}
+.hero{
+  padding:clamp(25px,5vw,55px);
+  border-radius:28px;
+  background:linear-gradient(125deg,#e1e4ff,#ffe3f2,#d9f5ff);
+  position:relative;overflow:hidden;
+  box-shadow:0 12px 35px #5551a10d;
+}
+.hero h2{
+  font-size:clamp(30px,5vw,49px);
+  line-height:1.12;margin:12px 0;
+  max-width:700px;letter-spacing:-1px;
+}
+.hero p{font-size:17px;line-height:1.8;max-width:650px}
+.eyebrow{
+  display:inline-block;color:#5c4ee9;
+  font-weight:bold;font-size:12px;
+  letter-spacing:2px;text-transform:uppercase;
+}
+.hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+.hero-actions .secondary{background:white;color:#5146c8}
+.features{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:13px;margin:20px 0;
+}
+.feature,.card,.panel{
+  background:white;border-radius:20px;padding:19px;
+  box-shadow:0 7px 25px #25204c0a;
+  border:1px solid #eeecfa;
+}
+.feature{display:flex;align-items:center;gap:12px}
+.feature-icon{font-size:30px}
+.feature strong{display:block;margin-bottom:5px}
+.muted{color:#73768f;font-size:14px;line-height:1.7}
+.section-title{font-size:clamp(25px,4vw,35px);margin:0 0 8px}
+.filters{display:flex;gap:9px;flex-wrap:wrap;margin:20px 0}
+.filters button{background:#eae8ff;color:#5146c8}
+.filters button.active{background:var(--ink);color:white}
+.products{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:18px;
+}
+.card{transition:transform .22s,box-shadow .22s;min-width:0}
+.card:hover{transform:translateY(-5px);box-shadow:0 14px 30px #29205214}
+.product-art{
+  height:155px;border-radius:16px;
+  background:linear-gradient(135deg,#e7e5ff,#ffe5f3,#e0f8ff);
+  display:grid;place-items:center;
+  font-size:70px;position:relative;overflow:hidden;
+}
+.product-art span{filter:drop-shadow(0 8px 8px #25213a22)}
+.sale-badge{
+  position:absolute;top:10px;left:10px;
+  background:#ff4e79;color:white;
+  padding:6px 9px;border-radius:8px;
+  font-size:11px;font-weight:bold;
+}
+.card h3{font-size:18px;margin:15px 0 5px}
+.price{font-size:23px;font-weight:800;color:#5b4ce9;margin:12px 0}
+.old-price{font-size:14px;color:#898ba0;text-decoration:line-through;margin-right:7px}
+.saving{font-size:12px;font-weight:bold;color:#07865d}
+.add{width:100%;margin-top:9px}
+.panel{padding:clamp(19px,4vw,30px)}
+.cartrow{
+  display:flex;justify-content:space-between;align-items:center;
+  gap:12px;border-bottom:1px solid #eeeef5;padding:15px 0;
+}
+.qty{display:flex;gap:8px;align-items:center}
+.qty button{padding:6px 11px}
+.total{font-size:26px;font-weight:bold;margin:16px 0;color:#5146c8}
+.summary-line{display:flex;justify-content:space-between;gap:12px;margin:12px 0}
+.discount-line{color:#07865d;font-weight:bold}
+input,textarea,select{
+  width:100%;padding:13px;border:1px solid #dcdced;
+  border-radius:11px;font:inherit;background:white;
+  outline:none;
+}
+input:focus,textarea:focus,select:focus{
+  border-color:var(--purple);
+  box-shadow:0 0 0 3px #6257ff18;
+}
+label{display:block;font-weight:bold;margin:15px 0 7px;font-size:14px}
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:13px}
+.notice{padding:15px;border-radius:13px;background:#fff5d9;line-height:1.7;font-size:14px}
+.about-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:16px;margin-top:22px;
+}
+.about-box{
+  background:linear-gradient(140deg,#f1efff,#fff1f8);
+  border-radius:18px;padding:22px;
+}
+.about-box .icon{font-size:32px}
+.about-box h3{margin:12px 0 8px}
+.story{
+  background:linear-gradient(125deg,#5045e9,#8651ed,#c35de7);
+  color:white;border-radius:22px;padding:clamp(22px,5vw,38px);
+  margin-top:20px;line-height:1.9;
+}
+.story p{color:#ffffffeb}
+.story h3{font-size:26px;margin-top:0}
+.review-card{margin-top:12px}
+footer{
+  text-align:center;padding:38px 20px;
+  background:#20213e;color:white;line-height:1.8;
+}
+footer a{color:#ffd0ed}
+footer .muted{color:#d4d3e7}
+.hidden{display:none!important}
+.status{font-weight:bold;line-height:1.7;margin-top:14px}
+@media(max-width:500px){
+  main{padding:13px}
+  nav{gap:6px}
+  nav button{padding:10px;font-size:12px}
+  .cartrow{align-items:flex-start}
+}
 </style>
 </head>
+
 <body>
 <header>
-  <div style="font-size:44px">📦📱✨</div>
+  <div class="logo">📦📱✨</div>
+  <div class="tag">HANDMADE TECH • MADE WITH CREATIVITY</div>
   <h1>BloXcraft Studios</h1>
-  <p>HANDMADE TECH • Built by hand, made with creativity.</p>
+  <p>Little creations. BIG imagination. 🚀</p>
   <p>🎁 Free delivery in Banasree, Dhaka</p>
 </header>
 
@@ -54,173 +205,507 @@ footer a{color:#ffd8ee}
   <button onclick="go('shop')">🛍️ Shop</button>
   <button onclick="go('cart')">🛒 Cart (<span id="cartCount">0</span>)</button>
   <button onclick="go('checkout')">📦 Order</button>
-  <button onclick="go('about')">💙 About</button>
+  <button onclick="go('about')">💙 About Us</button>
   <button onclick="go('reviews')">⭐ Reviews</button>
 </nav>
 
 <main>
+
 <section class="hero">
-  <h2>Small tech. BIG creativity! 🚀</h2>
-  <p>Discover handmade cardboard phones, computers, keyboards and accessories.</p>
-  <button onclick="go('shop')">Explore the collection →</button>
+  <span class="eyebrow">Welcome to our creative world</span>
+  <h2>Tech-inspired creations, handmade with love. 💜</h2>
+  <p>
+    Discover our collection of cardboard phone models, touchscreen
+    computer combos, keyboards, mouse accessories and smartwatches.
+    Every creation starts with a simple idea and a little imagination!
+  </p>
+  <div class="hero-actions">
+    <button onclick="go('shop')">Explore the shop →</button>
+    <button class="secondary" onclick="go('about')">Our story 💙</button>
+  </div>
 </section>
 
+<div class="features">
+  <div class="feature">
+    <span class="feature-icon">✂️</span>
+    <div><strong>Handmade creations</strong><span class="muted">Made with care</span></div>
+  </div>
+  <div class="feature">
+    <span class="feature-icon">🏷️</span>
+    <div><strong>Special discounts</strong><span class="muted">Save on selected items</span></div>
+  </div>
+  <div class="feature">
+    <span class="feature-icon">🎁</span>
+    <div><strong>Free local delivery</strong><span class="muted">Banasree, Dhaka</span></div>
+  </div>
+  <div class="feature">
+    <span class="feature-icon">💡</span>
+    <div><strong>Creative designs</strong><span class="muted">Made for fun</span></div>
+  </div>
+</div>
+
 <section id="shop">
-  <h2>🛍️ The Handmade Tech Shop</h2>
-  <p class="muted">Every item is a handmade model, not a real electronic device.</p>
+  <span class="eyebrow">Our collection</span>
+  <h2 class="section-title">🛍️ The Handmade Tech Shop</h2>
+  <p class="muted">These are handmade cardboard models, not working electronic devices.</p>
   <div class="filters" id="filters"></div>
   <div class="products" id="products"></div>
 </section>
 
 <section id="cart">
   <div class="panel">
-    <h2>🛒 Your Cart</h2>
+    <span class="eyebrow">Your picks</span>
+    <h2 class="section-title">🛒 Your Shopping Cart</h2>
     <div id="cartItems"></div>
-    <p>Subtotal: <strong id="subtotal">৳0</strong></p>
-    <p>Delivery: <strong id="delivery">৳0</strong></p>
+    <div class="summary-line"><span>Original subtotal</span><strong id="originalSubtotal">৳0</strong></div>
+    <div class="summary-line discount-line"><span>🎉 Your savings</span><strong id="savings">−৳0</strong></div>
+    <div class="summary-line"><span>Delivery</span><strong id="delivery">৳0</strong></div>
+    <hr style="border:0;border-top:1px solid #eee">
     <div class="total" id="total">Total: ৳0</div>
     <button onclick="go('checkout')">Continue to order →</button>
+    <button onclick="clearCart()" style="background:#f0efff;color:#5146c8;margin-left:5px">Clear cart</button>
   </div>
 </section>
 
 <section id="checkout">
   <div class="panel">
-    <h2>📦 Place an Order</h2>
-    <p class="muted">Submit your order request. Orders are not confirmed until the shop replies.</p>
-    <div class="notice">🚚 Free delivery is available ONLY in Banasree, Dhaka. Orders outside this area cannot be submitted through this form.</div>
+    <span class="eyebrow">Almost there!</span>
+    <h2 class="section-title">📦 Place Your Order</h2>
+    <p class="muted">Check your details carefully. We'll need a connected form service to receive orders by email.</p>
+    <div class="notice">
+      🚚 <strong>Free delivery:</strong> Banasree, Dhaka only.
+      <br>🎁 Want a gift note? You can request one below.
+      <br>⚠️ Your order is a request, not a confirmed purchase, until the shop replies.
+    </div>
 
     <form id="orderForm">
       <div class="two">
-        <div><label for="customer">Customer name *</label><input id="customer" name="customer" required maxlength="80" autocomplete="name"></div>
-        <div><label for="email">Customer email *</label><input id="email" name="email" type="email" required autocomplete="email"></div>
+        <div>
+          <label for="customer">Customer name *</label>
+          <input id="customer" name="customer" required maxlength="80" autocomplete="name">
+        </div>
+        <div>
+          <label for="email">Customer email *</label>
+          <input id="email" name="email" type="email" required maxlength="150" autocomplete="email">
+        </div>
       </div>
+
       <label for="area">Delivery area *</label>
       <select id="area" name="delivery_area" required>
         <option value="">Choose your area</option>
         <option value="Banasree, Dhaka">Banasree, Dhaka — Free delivery</option>
       </select>
+
       <label for="address">Delivery instructions (optional)</label>
-      <textarea id="address" name="delivery_instructions" maxlength="300" placeholder="Provide only the information needed to arrange delivery."></textarea>
+      <textarea id="address" name="delivery_instructions" maxlength="300" placeholder="Delivery details needed to arrange your order"></textarea>
+
       <label for="gift">🎁 Gift request (optional)</label>
-      <textarea id="gift" name="gift_request" maxlength="300" placeholder="Example: Please add a handmade gift note."></textarea>
+      <textarea id="gift" name="gift_request" maxlength="300" placeholder="Example: Please include a handmade gift note."></textarea>
+
       <label for="notes">Order notes (optional)</label>
       <textarea id="notes" name="notes" maxlength="500" placeholder="Any special requests?"></textarea>
+
       <input type="hidden" name="order_items" id="orderItemsField">
-      <input type="hidden" name="order_total_bdt" id="orderTotalField">
-      <button type="submit" style="width:100%;margin-top:16px">Send Order Request ✉️</button>
+      <input type="hidden" name="original_subtotal_bdt" id="originalTotalField">
+      <input type="hidden" name="discount_bdt" id="discountField">
+      <input type="hidden" name="final_total_bdt" id="orderTotalField">
+
+      <div class="panel" style="background:#f8f6ff;margin-top:18px;padding:16px">
+        <h3>Order summary</h3>
+        <div id="checkoutSummary">Your cart is empty.</div>
+      </div>
+
+      <button type="submit" id="submitOrder" style="width:100%;margin-top:18px">
+        Send Order Request ✉️
+      </button>
     </form>
-    <p id="orderStatus" role="status" aria-live="polite"></p>
-    <p class="muted">Your private shop notification email is configured through your form service, not displayed on this page.</p>
+
+    <p id="orderStatus" class="status" role="status" aria-live="polite"></p>
   </div>
 </section>
 
 <section id="about">
-  <div class="panel">
-    <h2>💙 About BloXcraft Studios</h2>
-    <p>We make creative handmade tech models from cardboard, turning simple materials into fun mini tech creations.</p>
-    <p>Our collection includes phone models, a touchscreen computer combo, keyboard models and mouse-style accessories.</p>
-    <p>📍 Delivery area: Banasree, Dhaka only. Delivery fee: ৳0.</p>
+  <span class="eyebrow">Who we are</span>
+  <h2 class="section-title">💙 About BloXcraft Studios</h2>
+
+  <div class="story">
+    <h3>Big ideas can come from simple things. ✨</h3>
+    <p>
+      Welcome to BloXcraft Studios, a creative handmade tech shop
+      where ordinary cardboard becomes something special!
+      We love turning imagination into fun designs inspired by the
+      world of phones, computers and everyday technology.
+    </p>
+    <p>
+      Our goal is to make creative, affordable and interesting
+      tech-inspired models for people who enjoy handmade crafts.
+      We believe that you don't need expensive materials to create
+      something exciting. Sometimes, all you need is cardboard,
+      careful hands and a brilliant idea.
+    </p>
+    <p>
+      Every product represents our passion for creativity.
+      From classic phone-inspired models to computer combos,
+      little accessories and smartwatches, our collection is
+      designed to bring imagination to life.
+    </p>
+  </div>
+
+  <div class="about-grid">
+    <div class="about-box">
+      <div class="icon">📱</div>
+      <h3>Our Handmade Phones</h3>
+      <p class="muted">
+        Explore cardboard models inspired by iPhone, Samsung Galaxy,
+        Google Pixel, OnePlus, Xiaomi and other phone designs.
+        Each model is a creative craft, not a real phone.
+      </p>
+    </div>
+
+    <div class="about-box">
+      <div class="icon">🖥️</div>
+      <h3>Our Computer Creations</h3>
+      <p class="muted">
+        Discover our touchscreen-computer-inspired model combo,
+        complete with a handmade keyboard and mouse-style accessory.
+        It's all about imaginative design and handmade fun.
+      </p>
+    </div>
+
+    <div class="about-box">
+      <div class="icon">⌚</div>
+      <h3>Small Accessories, Big Fun</h3>
+      <p class="muted">
+        Add a handmade smartwatch, keyboard or mouse-style model
+        to your collection. Small creations can make a big difference
+        to your display or pretend-tech setup.
+      </p>
+    </div>
+
+    <div class="about-box">
+      <div class="icon">💜</div>
+      <h3>Creativity for Everyone</h3>
+      <p class="muted">
+        We aim to keep our creations affordable and fun.
+        Selected products feature discounts, so you can discover
+        something new without spending as much.
+      </p>
+    </div>
+
+    <div class="about-box">
+      <div class="icon">🎁</div>
+      <h3>Our Customer Promise</h3>
+      <p class="muted">
+        We want every customer to know exactly what they're ordering.
+        Product descriptions and prices are shown before checkout,
+        and each order request needs confirmation from our shop.
+      </p>
+    </div>
+
+    <div class="about-box">
+      <div class="icon">📍</div>
+      <h3>Local Delivery</h3>
+      <p class="muted">
+        We offer free delivery in Banasree, Dhaka.
+        Choose the available delivery area at checkout and wait
+        for the shop to confirm your order.
+      </p>
+    </div>
+  </div>
+
+  <div class="panel" style="margin-top:20px;text-align:center;background:linear-gradient(130deg,#fff,#f0edff)">
+    <h3>Thanks for supporting handmade creativity! 💖</h3>
+    <p class="muted">
+      Every visit helps our little creative world grow.
+      Browse the collection, find your favourite model,
+      and let your imagination do the rest.
+    </p>
+    <button onclick="go('shop')">Find your favourite →</button>
   </div>
 </section>
 
 <section id="reviews">
   <div class="panel">
-    <h2>⭐ Customer Reviews</h2>
-    <p class="muted">Reviews saved in this browser are not automatically visible to other customers.</p>
+    <span class="eyebrow">Share your experience</span>
+    <h2 class="section-title">⭐ Customer Reviews</h2>
+    <p class="muted">Reviews added here are saved only in this browser. They are not automatically shared with other visitors.</p>
+
     <form id="reviewForm">
-      <label for="reviewName">Display name</label><input id="reviewName" maxlength="50" required>
+      <label for="reviewName">Display name</label>
+      <input id="reviewName" maxlength="50" required>
+
       <label for="rating">Rating</label>
-      <select id="rating"><option value="5">⭐⭐⭐⭐⭐ — 5</option><option value="4">⭐⭐⭐⭐ — 4</option><option value="3">⭐⭐⭐ — 3</option><option value="2">⭐⭐ — 2</option><option value="1">⭐ — 1</option></select>
-      <label for="reviewText">Your review</label><textarea id="reviewText" maxlength="500" required></textarea>
-      <button type="submit">Add local review</button>
+      <select id="rating">
+        <option value="5">⭐⭐⭐⭐⭐ — 5 stars</option>
+        <option value="4">⭐⭐⭐⭐ — 4 stars</option>
+        <option value="3">⭐⭐⭐ — 3 stars</option>
+        <option value="2">⭐⭐ — 2 stars</option>
+        <option value="1">⭐ — 1 star</option>
+      </select>
+
+      <label for="reviewText">Your review</label>
+      <textarea id="reviewText" maxlength="500" required></textarea>
+
+      <button type="submit">Add review ⭐</button>
     </form>
     <div id="reviewsList"></div>
   </div>
 </section>
+
 </main>
 
 <footer>
-  <h3>BloXcraft Studios | Handmade Tech</h3>
-  <p>Made with cardboard, creativity and care 💖</p>
-  <p>Delivery: Banasree, Dhaka only</p>
-  <p class="muted" style="color:#ddd">No personal phone number or home address published.</p>
+  <div style="font-size:35px">📦📱✨</div>
+  <h2>BloXcraft Studios</h2>
+  <p>Handmade Tech • Built by hand, made with creativity. 💜</p>
+  <p>🚚 Free delivery in Banasree, Dhaka</p>
+  <p class="muted">Our products are handmade models, not functioning electronic devices.</p>
+  <p class="muted">© <span id="year"></span> BloXcraft Studios. Made with creativity and care.</p>
+  <button onclick="go('shop')">Back to shopping ↑</button>
 </footer>
 
 <script>
-const products=[
-{id:1,name:"iPhone 1–6 Collection",category:"Phones",price:50,emoji:"📱",desc:"Choose a classic handmade iPhone model."},
-{id:2,name:"iPhone XR",category:"Phones",price:50,emoji:"📱",desc:"A colourful handmade phone model."},
-{id:3,name:"iPhone 16e",category:"Phones",price:50,emoji:"📱",desc:"Handcrafted cardboard design."},
-{id:4,name:"iPhone 17e",category:"Phones",price:50,emoji:"📱",desc:"A handmade modern-style model."},
-{id:5,name:"Samsung Galaxy",category:"Phones",price:50,emoji:"📲",desc:"Galaxy-inspired cardboard model."},
-{id:6,name:"Google Pixel",category:"Phones",price:50,emoji:"📱",desc:"Pixel-inspired handmade model."},
-{id:7,name:"OnePlus",category:"Phones",price:50,emoji:"📱",desc:"OnePlus-inspired cardboard model."},
-{id:8,name:"Xiaomi / Redmi",category:"Phones",price:50,emoji:"📱",desc:"Handmade Xiaomi-style model."},
-{id:9,name:"Custom Android Phone",category:"Phones",price:50,emoji:"📲",desc:"A custom handmade phone design."},
-{id:10,name:"Touchscreen Computer Combo",category:"Computers",price:60,emoji:"🖥️",desc:"Computer model with handmade keyboard and Magic Mouse-style accessory."},
-{id:11,name:"Handmade Keyboard",category:"Accessories",price:20,emoji:"⌨️",desc:"A separate handmade keyboard model."},
-{id:12,name:"Mouse-Style Accessory",category:"Accessories",price:20,emoji:"🖱️",desc:"A separate handmade mouse-style accessory."}
+const products = [
+  {id:1,name:"iPhone 1–6 Collection",category:"Phones",price:50,emoji:"📱",desc:"Choose a classic handmade iPhone model."},
+  {id:2,name:"iPhone XR",category:"Phones",price:50,emoji:"📱",desc:"A colourful cardboard phone model."},
+  {id:3,name:"iPhone 16e",category:"Phones",price:50,sale:40,emoji:"📱",desc:"A handmade modern-style phone model."},
+  {id:4,name:"iPhone 17e",category:"Phones",price:50,sale:45,emoji:"📱",desc:"A handmade modern-style model."},
+  {id:5,name:"Samsung Galaxy",category:"Phones",price:50,emoji:"📲",desc:"Galaxy-inspired cardboard model."},
+  {id:6,name:"Google Pixel",category:"Phones",price:50,sale:45,emoji:"📱",desc:"Pixel-inspired handmade model."},
+  {id:7,name:"OnePlus",category:"Phones",price:50,emoji:"📱",desc:"OnePlus-inspired cardboard model."},
+  {id:8,name:"Xiaomi / Redmi",category:"Phones",price:50,emoji:"📱",desc:"Handmade Xiaomi-style model."},
+  {id:9,name:"Custom Android Phone",category:"Phones",price:50,emoji:"📲",desc:"A custom handmade phone design."},
+  {id:10,name:"Touchscreen Computer Combo",category:"Computers",price:60,sale:50,emoji:"🖥️",desc:"Computer model with handmade keyboard and mouse-style accessory."},
+  {id:11,name:"Handmade Keyboard",category:"Accessories",price:20,emoji:"⌨️",desc:"A separate handmade keyboard model."},
+  {id:12,name:"Mouse-Style Accessory",category:"Accessories",price:20,emoji:"🖱️",desc:"A separate handmade mouse-style accessory."},
+  {id:13,name:"Handmade Smartwatch",category:"Accessories",price:20,emoji:"⌚",desc:"A cute cardboard smartwatch model for just ৳20."}
 ];
-let cart=JSON.parse(localStorage.getItem("bloxcraftCart")||"{}");
-let category="All";
-const money=n=>"৳"+n;
-function go(id){document.getElementById(id).scrollIntoView({behavior:"smooth",block:"start"})}
-function saveCart(){localStorage.setItem("bloxcraftCart",JSON.stringify(cart));renderCart()}
-function renderFilters(){
- const cats=["All","Phones","Computers","Accessories"];
- document.getElementById("filters").innerHTML=cats.map(c=>`<button class="${category===c?'active':''}" data-category="${c}">${c}</button>`).join("");
- document.querySelectorAll("[data-category]").forEach(b=>b.onclick=()=>{category=b.dataset.category;renderFilters();renderProducts()})
+
+let cart = {};
+try {
+  cart = JSON.parse(localStorage.getItem("bloxcraftCart") || "{}");
+  if (!cart || typeof cart !== "object" || Array.isArray(cart)) cart = {};
+} catch { cart = {}; }
+
+let category = "All";
+const money = n => "৳" + Number(n).toLocaleString("en-BD");
+const getPrice = p => p.sale ?? p.price;
+
+function go(id) {
+  document.getElementById(id).scrollIntoView({behavior:"smooth",block:"start"});
 }
-function renderProducts(){
- document.getElementById("products").innerHTML=products.filter(p=>category==="All"||p.category===category).map(p=>`
- <article class="card"><div class="product-art">${p.emoji}</div><h3>${p.name}</h3><p class="muted">${p.desc}</p><p class="price">${money(p.price)}</p><button class="add" onclick="addToCart(${p.id})">Add to cart +</button></article>`).join("")
+
+function saveCart() {
+  try { localStorage.setItem("bloxcraftCart",JSON.stringify(cart)); }
+  catch(e) {}
+  renderCart();
 }
-function addToCart(id){cart[id]=(cart[id]||0)+1;saveCart()}
-function changeQty(id,delta){cart[id]=(cart[id]||0)+delta;if(cart[id]<=0)delete cart[id];saveCart()}
-function getCartLines(){return products.filter(p=>cart[p.id]>0).map(p=>({...p,qty:cart[p.id]}))}
-function renderCart(){
- const lines=getCartLines(),count=lines.reduce((s,p)=>s+p.qty,0),sub=lines.reduce((s,p)=>s+p.qty*p.price,0);
- document.getElementById("cartCount").textContent=count;
- document.getElementById("cartItems").innerHTML=lines.length?lines.map(p=>`<div class="cartrow"><div><strong>${p.name}</strong><br><span class="muted">${money(p.price)} each</span></div><div class="qty"><button aria-label="Remove one" onclick="changeQty(${p.id},-1)">−</button><span>${p.qty}</span><button aria-label="Add one" onclick="changeQty(${p.id},1)">+</button></div></div>`).join(""):"<p>Your cart is empty. Add something from the shop! 🛍️</p>";
- document.getElementById("subtotal").textContent=money(sub);
- document.getElementById("delivery").textContent="৳0";
- document.getElementById("total").textContent="Total: "+money(sub);
- document.getElementById("orderItemsField").value=lines.map(p=>`${p.name} x ${p.qty} = ${money(p.qty*p.price)}`).join("\n");
- document.getElementById("orderTotalField").value=sub;
+
+function renderFilters() {
+  const cats = ["All","Phones","Computers","Accessories"];
+  document.getElementById("filters").innerHTML = cats.map(c =>
+    `<button class="${category===c?'active':''}" data-category="${c}">${c}</button>`
+  ).join("");
+
+  document.querySelectorAll("[data-category]").forEach(b => {
+    b.onclick = () => {
+      category = b.dataset.category;
+      renderFilters();
+      renderProducts();
+    };
+  });
 }
-document.getElementById("orderForm").addEventListener("submit",async e=>{
- e.preventDefault();
- const status=document.getElementById("orderStatus");
- if(!getCartLines().length){status.textContent="Please add at least one product to your cart first.";return}
- if(document.getElementById("area").value!=="Banasree, Dhaka"){status.textContent="Free delivery is limited to Banasree, Dhaka.";return}
- const form=e.currentTarget;
- // Configure this endpoint with your chosen form service before accepting real orders.
- const FORM_ENDPOINT="PASTE_YOUR_FORM_SERVICE_ENDPOINT_HERE";
- if(!FORM_ENDPOINT.startsWith("https://")){
-   status.textContent="Setup needed: connect a form service and paste its HTTPS submission endpoint into the HTML. No order has been sent.";
-   return;
- }
- const btn=form.querySelector('button[type="submit"]');btn.disabled=true;status.textContent="Sending order request…";
- try{
-   const response=await fetch(FORM_ENDPOINT,{method:"POST",body:new FormData(form),headers:{Accept:"application/json"}});
-   if(!response.ok)throw new Error("Submission failed");
-   status.textContent="Order request submitted! Please wait for the shop to confirm it.";
-   cart={};saveCart();form.reset();
- }catch(err){status.textContent="We couldn't submit your request. Please try again later."}
- finally{btn.disabled=false}
+
+function renderProducts() {
+  const shown = products.filter(p =>
+    category === "All" || p.category === category
+  );
+
+  document.getElementById("products").innerHTML = shown.map(p => {
+    const sale = getPrice(p);
+    const discount = p.price - sale;
+    return `
+      <article class="card">
+        <div class="product-art">
+          ${discount > 0 ? `<span class="sale-badge">SAVE ${Math.round(discount/p.price*100)}%</span>` : ""}
+          <span>${p.emoji}</span>
+        </div>
+        <h3>${p.name}</h3>
+        <p class="muted">${p.desc}</p>
+        <p class="price">
+          ${money(sale)}
+          ${discount > 0 ? `<span class="old-price">${money(p.price)}</span>` : ""}
+        </p>
+        ${discount > 0 ? `<p class="saving">🎉 Save ${money(discount)} per item!</p>` : `<p class="muted">Handmade model</p>`}
+        <button class="add" onclick="addToCart(${p.id})">Add to cart +</button>
+      </article>
+    `;
+  }).join("");
+}
+
+function addToCart(id) {
+  cart[id] = (Number(cart[id]) || 0) + 1;
+  saveCart();
+}
+
+function changeQty(id, delta) {
+  cart[id] = (Number(cart[id]) || 0) + delta;
+  if (cart[id] <= 0) delete cart[id];
+  saveCart();
+}
+
+function clearCart() {
+  cart = {};
+  saveCart();
+}
+
+function getCartLines() {
+  return products.filter(p => Number.isInteger(Number(cart[p.id])) && Number(cart[p.id]) > 0)
+    .map(p => ({...p,qty:Number(cart[p.id])}));
+}
+
+function renderCart() {
+  const lines = getCartLines();
+  const count = lines.reduce((s,p) => s+p.qty,0);
+  const original = lines.reduce((s,p) => s+p.qty*p.price,0);
+  const sub = lines.reduce((s,p) => s+p.qty*getPrice(p),0);
+  const savings = original-sub;
+
+  document.getElementById("cartCount").textContent = count;
+
+  document.getElementById("cartItems").innerHTML = lines.length
+    ? lines.map(p => `
+      <div class="cartrow">
+        <div>
+          <strong>${p.emoji} ${p.name}</strong><br>
+          <span class="muted">${money(getPrice(p))} each</span>
+          ${getPrice(p)<p.price ? `<br><span class="saving">Sale price applied</span>` : ""}
+        </div>
+        <div class="qty">
+          <button aria-label="Remove one ${p.name}" onclick="changeQty(${p.id},-1)">−</button>
+          <strong>${p.qty}</strong>
+          <button aria-label="Add one ${p.name}" onclick="changeQty(${p.id},1)">+</button>
+        </div>
+      </div>`).join("")
+    : "<p>Your cart is empty. Find something creative in our shop! 🛍️</p>";
+
+  document.getElementById("originalSubtotal").textContent = money(original);
+  document.getElementById("savings").textContent = "−" + money(savings);
+  document.getElementById("delivery").textContent = money(0);
+  document.getElementById("total").textContent = "Total: " + money(sub);
+
+  document.getElementById("orderItemsField").value = lines.map(p =>
+    `${p.name} x ${p.qty}; unit price ${money(getPrice(p))}; line total ${money(getPrice(p)*p.qty)}`
+  ).join("\n");
+
+  document.getElementById("originalTotalField").value = original;
+  document.getElementById("discountField").value = savings;
+  document.getElementById("orderTotalField").value = sub;
+
+  document.getElementById("checkoutSummary").innerHTML = lines.length
+    ? `<p>Items: ${count}</p>
+       <p>Original subtotal: ${money(original)}</p>
+       <p class="discount-line">Your savings: −${money(savings)}</p>
+       <p>Delivery: Free</p>
+       <h3>Total: ${money(sub)}</h3>`
+    : "Your cart is empty. Add a product before ordering.";
+}
+
+const FORM_ENDPOINT = "PASTE_YOUR_FORM_SERVICE_ENDPOINT_HERE";
+
+document.getElementById("orderForm").addEventListener("submit", async e => {
+  e.preventDefault();
+
+  const form = e.currentTarget;
+  const status = document.getElementById("orderStatus");
+  const btn = document.getElementById("submitOrder");
+
+  if (!getCartLines().length) {
+    status.textContent = "Please add at least one product to your cart first.";
+    return;
+  }
+
+  if (document.getElementById("area").value !== "Banasree, Dhaka") {
+    status.textContent = "Please select the available delivery area.";
+    return;
+  }
+
+  if (!FORM_ENDPOINT.startsWith("https://") ||
+      FORM_ENDPOINT.includes("PASTE_YOUR_FORM_SERVICE_ENDPOINT_HERE")) {
+    status.textContent = "Email setup needed: connect a form service and replace FORM_ENDPOINT in the code with its real HTTPS submission URL. No order has been sent yet.";
+    return;
+  }
+
+  btn.disabled = true;
+  status.textContent = "Sending your order request…";
+
+  try {
+    const response = await fetch(FORM_ENDPOINT, {
+      method:"POST",
+      body:new FormData(form),
+      headers:{Accept:"application/json"}
+    });
+
+    if (!response.ok) throw new Error("Submission failed");
+
+    status.textContent = "Your order request was submitted! Please wait for the shop to confirm it.";
+    cart = {};
+    saveCart();
+    form.reset();
+  } catch (err) {
+    status.textContent = "We couldn't submit your order. Please try again later.";
+  } finally {
+    btn.disabled = false;
+  }
 });
-function renderReviews(){
- const reviews=JSON.parse(localStorage.getItem("bloxcraftReviews")||"[]");
- document.getElementById("reviewsList").innerHTML=reviews.map(r=>`<div class="card" style="margin-top:12px"><strong>${escapeHTML(r.name)}</strong> · ${"⭐".repeat(r.rating)}<p>${escapeHTML(r.text)}</p></div>`).join("")||"<p>No local reviews yet.</p>"
+
+function escapeHTML(s) {
+  return String(s).replace(/[&<>"']/g,c => ({
+    "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
+  })[c]);
 }
-function escapeHTML(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
-document.getElementById("reviewForm").addEventListener("submit",e=>{
- e.preventDefault();
- const reviews=JSON.parse(localStorage.getItem("bloxcraftReviews")||"[]");
- reviews.unshift({name:document.getElementById("reviewName").value,rating:Number(document.getElementById("rating").value),text:document.getElementById("reviewText").value});
- localStorage.setItem("bloxcraftReviews",JSON.stringify(reviews.slice(0,30)));e.target.reset();renderReviews()
+
+function renderReviews() {
+  let reviews = [];
+  try { reviews = JSON.parse(localStorage.getItem("bloxcraftReviews") || "[]"); }
+  catch(e) {}
+
+  document.getElementById("reviewsList").innerHTML = reviews.map(r => `
+    <div class="card review-card">
+      <strong>${escapeHTML(r.name)}</strong>
+      · ${"⭐".repeat(r.rating)}
+      <p>${escapeHTML(r.text)}</p>
+    </div>
+  `).join("") || "<p class='muted'>No reviews yet. Be the first to share your thoughts!</p>";
+}
+
+document.getElementById("reviewForm").addEventListener("submit", e => {
+  e.preventDefault();
+
+  let reviews = [];
+  try { reviews = JSON.parse(localStorage.getItem("bloxcraftReviews") || "[]"); }
+  catch(err) {}
+
+  reviews.unshift({
+    name:document.getElementById("reviewName").value,
+    rating:Number(document.getElementById("rating").value),
+    text:document.getElementById("reviewText").value
+  });
+
+  try {
+    localStorage.setItem("bloxcraftReviews",JSON.stringify(reviews.slice(0,30)));
+  } catch(err) {}
+
+  e.target.reset();
+  renderReviews();
 });
-renderFilters();renderProducts();renderCart();renderReviews();
+
+document.getElementById("year").textContent = new Date().getFullYear();
+
+renderFilters();
+renderProducts();
+renderCart();
+renderReviews();
 </script>
 </body>
 </html>
