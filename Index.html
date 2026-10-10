@@ -1,0 +1,225 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BloXcraft Studios | Handmade Tech</title>
+<style>
+:root{--bg:#f5f7ff;--ink:#18213b;--blue:#5b63f6;--pink:#ff70b8;--card:#fff}
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:var(--bg);color:var(--ink)}
+header{background:linear-gradient(120deg,#5b63f6,#a45cff,#ff70b8);color:white;padding:30px 18px;text-align:center}
+header h1{font-size:clamp(28px,5vw,45px);margin:8px}
+header p{margin:8px}
+nav{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;padding:14px;background:white;position:sticky;top:0;z-index:3;box-shadow:0 3px 12px #18213b12}
+button,.btn{border:0;border-radius:12px;padding:11px 15px;background:var(--blue);color:white;font-weight:bold;cursor:pointer}
+nav button{background:#f0efff;color:#4545b5}
+main{max-width:1100px;margin:auto;padding:22px}
+.hero{padding:25px;border-radius:22px;background:linear-gradient(120deg,#e5e5ff,#ffe4f1);margin-bottom:22px}
+.hero h2{font-size:30px;margin:5px 0}
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0}
+.filters button.active{background:#25294b;color:white}
+.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:17px}
+.card,.panel{background:var(--card);border-radius:18px;padding:17px;box-shadow:0 5px 20px #18213b0c}
+.product-art{height:135px;border-radius:14px;background:linear-gradient(135deg,#ededff,#ffe8f3);display:grid;place-items:center;font-size:64px}
+.card h3{margin-bottom:5px}
+.price{font-size:21px;font-weight:bold;color:#5455e8}
+.muted{color:#68708b;font-size:14px}
+.add{width:100%;margin-top:10px}
+section{margin:28px 0}
+input,textarea,select{width:100%;padding:12px;border:1px solid #d8dced;border-radius:10px;font:inherit;background:white}
+label{display:block;font-weight:bold;margin:13px 0 6px}
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.cartrow{display:flex;justify-content:space-between;align-items:center;gap:10px;border-bottom:1px solid #eee;padding:12px 0}
+.qty{display:flex;gap:7px;align-items:center}
+.qty button{padding:5px 10px}
+.total{font-size:24px;font-weight:bold;margin:15px 0}
+.notice{padding:13px;background:#fff4d9;border-radius:12px;font-size:14px}
+footer{text-align:center;padding:28px;background:#202443;color:white}
+footer a{color:#ffd8ee}
+.hidden{display:none}
+</style>
+</head>
+<body>
+<header>
+  <div style="font-size:44px">📦📱✨</div>
+  <h1>BloXcraft Studios</h1>
+  <p>HANDMADE TECH • Built by hand, made with creativity.</p>
+  <p>🎁 Free delivery in Banasree, Dhaka</p>
+</header>
+
+<nav>
+  <button onclick="go('shop')">🛍️ Shop</button>
+  <button onclick="go('cart')">🛒 Cart (<span id="cartCount">0</span>)</button>
+  <button onclick="go('checkout')">📦 Order</button>
+  <button onclick="go('about')">💙 About</button>
+  <button onclick="go('reviews')">⭐ Reviews</button>
+</nav>
+
+<main>
+<section class="hero">
+  <h2>Small tech. BIG creativity! 🚀</h2>
+  <p>Discover handmade cardboard phones, computers, keyboards and accessories.</p>
+  <button onclick="go('shop')">Explore the collection →</button>
+</section>
+
+<section id="shop">
+  <h2>🛍️ The Handmade Tech Shop</h2>
+  <p class="muted">Every item is a handmade model, not a real electronic device.</p>
+  <div class="filters" id="filters"></div>
+  <div class="products" id="products"></div>
+</section>
+
+<section id="cart">
+  <div class="panel">
+    <h2>🛒 Your Cart</h2>
+    <div id="cartItems"></div>
+    <p>Subtotal: <strong id="subtotal">৳0</strong></p>
+    <p>Delivery: <strong id="delivery">৳0</strong></p>
+    <div class="total" id="total">Total: ৳0</div>
+    <button onclick="go('checkout')">Continue to order →</button>
+  </div>
+</section>
+
+<section id="checkout">
+  <div class="panel">
+    <h2>📦 Place an Order</h2>
+    <p class="muted">Submit your order request. Orders are not confirmed until the shop replies.</p>
+    <div class="notice">🚚 Free delivery is available ONLY in Banasree, Dhaka. Orders outside this area cannot be submitted through this form.</div>
+
+    <form id="orderForm">
+      <div class="two">
+        <div><label for="customer">Customer name *</label><input id="customer" name="customer" required maxlength="80" autocomplete="name"></div>
+        <div><label for="email">Customer email *</label><input id="email" name="email" type="email" required autocomplete="email"></div>
+      </div>
+      <label for="area">Delivery area *</label>
+      <select id="area" name="delivery_area" required>
+        <option value="">Choose your area</option>
+        <option value="Banasree, Dhaka">Banasree, Dhaka — Free delivery</option>
+      </select>
+      <label for="address">Delivery instructions (optional)</label>
+      <textarea id="address" name="delivery_instructions" maxlength="300" placeholder="Provide only the information needed to arrange delivery."></textarea>
+      <label for="gift">🎁 Gift request (optional)</label>
+      <textarea id="gift" name="gift_request" maxlength="300" placeholder="Example: Please add a handmade gift note."></textarea>
+      <label for="notes">Order notes (optional)</label>
+      <textarea id="notes" name="notes" maxlength="500" placeholder="Any special requests?"></textarea>
+      <input type="hidden" name="order_items" id="orderItemsField">
+      <input type="hidden" name="order_total_bdt" id="orderTotalField">
+      <button type="submit" style="width:100%;margin-top:16px">Send Order Request ✉️</button>
+    </form>
+    <p id="orderStatus" role="status" aria-live="polite"></p>
+    <p class="muted">Your private shop notification email is configured through your form service, not displayed on this page.</p>
+  </div>
+</section>
+
+<section id="about">
+  <div class="panel">
+    <h2>💙 About BloXcraft Studios</h2>
+    <p>We make creative handmade tech models from cardboard, turning simple materials into fun mini tech creations.</p>
+    <p>Our collection includes phone models, a touchscreen computer combo, keyboard models and mouse-style accessories.</p>
+    <p>📍 Delivery area: Banasree, Dhaka only. Delivery fee: ৳0.</p>
+  </div>
+</section>
+
+<section id="reviews">
+  <div class="panel">
+    <h2>⭐ Customer Reviews</h2>
+    <p class="muted">Reviews saved in this browser are not automatically visible to other customers.</p>
+    <form id="reviewForm">
+      <label for="reviewName">Display name</label><input id="reviewName" maxlength="50" required>
+      <label for="rating">Rating</label>
+      <select id="rating"><option value="5">⭐⭐⭐⭐⭐ — 5</option><option value="4">⭐⭐⭐⭐ — 4</option><option value="3">⭐⭐⭐ — 3</option><option value="2">⭐⭐ — 2</option><option value="1">⭐ — 1</option></select>
+      <label for="reviewText">Your review</label><textarea id="reviewText" maxlength="500" required></textarea>
+      <button type="submit">Add local review</button>
+    </form>
+    <div id="reviewsList"></div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <h3>BloXcraft Studios | Handmade Tech</h3>
+  <p>Made with cardboard, creativity and care 💖</p>
+  <p>Delivery: Banasree, Dhaka only</p>
+  <p class="muted" style="color:#ddd">No personal phone number or home address published.</p>
+</footer>
+
+<script>
+const products=[
+{id:1,name:"iPhone 1–6 Collection",category:"Phones",price:50,emoji:"📱",desc:"Choose a classic handmade iPhone model."},
+{id:2,name:"iPhone XR",category:"Phones",price:50,emoji:"📱",desc:"A colourful handmade phone model."},
+{id:3,name:"iPhone 16e",category:"Phones",price:50,emoji:"📱",desc:"Handcrafted cardboard design."},
+{id:4,name:"iPhone 17e",category:"Phones",price:50,emoji:"📱",desc:"A handmade modern-style model."},
+{id:5,name:"Samsung Galaxy",category:"Phones",price:50,emoji:"📲",desc:"Galaxy-inspired cardboard model."},
+{id:6,name:"Google Pixel",category:"Phones",price:50,emoji:"📱",desc:"Pixel-inspired handmade model."},
+{id:7,name:"OnePlus",category:"Phones",price:50,emoji:"📱",desc:"OnePlus-inspired cardboard model."},
+{id:8,name:"Xiaomi / Redmi",category:"Phones",price:50,emoji:"📱",desc:"Handmade Xiaomi-style model."},
+{id:9,name:"Custom Android Phone",category:"Phones",price:50,emoji:"📲",desc:"A custom handmade phone design."},
+{id:10,name:"Touchscreen Computer Combo",category:"Computers",price:60,emoji:"🖥️",desc:"Computer model with handmade keyboard and Magic Mouse-style accessory."},
+{id:11,name:"Handmade Keyboard",category:"Accessories",price:20,emoji:"⌨️",desc:"A separate handmade keyboard model."},
+{id:12,name:"Mouse-Style Accessory",category:"Accessories",price:20,emoji:"🖱️",desc:"A separate handmade mouse-style accessory."}
+];
+let cart=JSON.parse(localStorage.getItem("bloxcraftCart")||"{}");
+let category="All";
+const money=n=>"৳"+n;
+function go(id){document.getElementById(id).scrollIntoView({behavior:"smooth",block:"start"})}
+function saveCart(){localStorage.setItem("bloxcraftCart",JSON.stringify(cart));renderCart()}
+function renderFilters(){
+ const cats=["All","Phones","Computers","Accessories"];
+ document.getElementById("filters").innerHTML=cats.map(c=>`<button class="${category===c?'active':''}" data-category="${c}">${c}</button>`).join("");
+ document.querySelectorAll("[data-category]").forEach(b=>b.onclick=()=>{category=b.dataset.category;renderFilters();renderProducts()})
+}
+function renderProducts(){
+ document.getElementById("products").innerHTML=products.filter(p=>category==="All"||p.category===category).map(p=>`
+ <article class="card"><div class="product-art">${p.emoji}</div><h3>${p.name}</h3><p class="muted">${p.desc}</p><p class="price">${money(p.price)}</p><button class="add" onclick="addToCart(${p.id})">Add to cart +</button></article>`).join("")
+}
+function addToCart(id){cart[id]=(cart[id]||0)+1;saveCart()}
+function changeQty(id,delta){cart[id]=(cart[id]||0)+delta;if(cart[id]<=0)delete cart[id];saveCart()}
+function getCartLines(){return products.filter(p=>cart[p.id]>0).map(p=>({...p,qty:cart[p.id]}))}
+function renderCart(){
+ const lines=getCartLines(),count=lines.reduce((s,p)=>s+p.qty,0),sub=lines.reduce((s,p)=>s+p.qty*p.price,0);
+ document.getElementById("cartCount").textContent=count;
+ document.getElementById("cartItems").innerHTML=lines.length?lines.map(p=>`<div class="cartrow"><div><strong>${p.name}</strong><br><span class="muted">${money(p.price)} each</span></div><div class="qty"><button aria-label="Remove one" onclick="changeQty(${p.id},-1)">−</button><span>${p.qty}</span><button aria-label="Add one" onclick="changeQty(${p.id},1)">+</button></div></div>`).join(""):"<p>Your cart is empty. Add something from the shop! 🛍️</p>";
+ document.getElementById("subtotal").textContent=money(sub);
+ document.getElementById("delivery").textContent="৳0";
+ document.getElementById("total").textContent="Total: "+money(sub);
+ document.getElementById("orderItemsField").value=lines.map(p=>`${p.name} x ${p.qty} = ${money(p.qty*p.price)}`).join("\n");
+ document.getElementById("orderTotalField").value=sub;
+}
+document.getElementById("orderForm").addEventListener("submit",async e=>{
+ e.preventDefault();
+ const status=document.getElementById("orderStatus");
+ if(!getCartLines().length){status.textContent="Please add at least one product to your cart first.";return}
+ if(document.getElementById("area").value!=="Banasree, Dhaka"){status.textContent="Free delivery is limited to Banasree, Dhaka.";return}
+ const form=e.currentTarget;
+ // Configure this endpoint with your chosen form service before accepting real orders.
+ const FORM_ENDPOINT="PASTE_YOUR_FORM_SERVICE_ENDPOINT_HERE";
+ if(!FORM_ENDPOINT.startsWith("https://")){
+   status.textContent="Setup needed: connect a form service and paste its HTTPS submission endpoint into the HTML. No order has been sent.";
+   return;
+ }
+ const btn=form.querySelector('button[type="submit"]');btn.disabled=true;status.textContent="Sending order request…";
+ try{
+   const response=await fetch(FORM_ENDPOINT,{method:"POST",body:new FormData(form),headers:{Accept:"application/json"}});
+   if(!response.ok)throw new Error("Submission failed");
+   status.textContent="Order request submitted! Please wait for the shop to confirm it.";
+   cart={};saveCart();form.reset();
+ }catch(err){status.textContent="We couldn't submit your request. Please try again later."}
+ finally{btn.disabled=false}
+});
+function renderReviews(){
+ const reviews=JSON.parse(localStorage.getItem("bloxcraftReviews")||"[]");
+ document.getElementById("reviewsList").innerHTML=reviews.map(r=>`<div class="card" style="margin-top:12px"><strong>${escapeHTML(r.name)}</strong> · ${"⭐".repeat(r.rating)}<p>${escapeHTML(r.text)}</p></div>`).join("")||"<p>No local reviews yet.</p>"
+}
+function escapeHTML(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+document.getElementById("reviewForm").addEventListener("submit",e=>{
+ e.preventDefault();
+ const reviews=JSON.parse(localStorage.getItem("bloxcraftReviews")||"[]");
+ reviews.unshift({name:document.getElementById("reviewName").value,rating:Number(document.getElementById("rating").value),text:document.getElementById("reviewText").value});
+ localStorage.setItem("bloxcraftReviews",JSON.stringify(reviews.slice(0,30)));e.target.reset();renderReviews()
+});
+renderFilters();renderProducts();renderCart();renderReviews();
+</script>
+</body>
+</html>
